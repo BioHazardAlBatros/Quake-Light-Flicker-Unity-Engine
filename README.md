@@ -4,6 +4,18 @@ THIS SCRIPT WAS MADE FOR UNITY.
 
 Doom is a typo!!! I'm just too lazy to fix it.
 
+
+Pros:
+
+-Easy animation
+
+-Can be used to make a scripted sequence animation
+
+-It works
+
+-shit sux
+
+
 How to use:
 
 1.Create an object with light component.
@@ -55,6 +67,8 @@ Premade presets:
 
 11: Slow pulse not fade to black
 
+12-??:Your own preset!
+
 
 Delay property:
 
@@ -67,3 +81,7 @@ Change this value to add some more intensity to EVERY intensity change.
 Reinitialize property:
 
 Allows you to update the animation in Editor/by other scripts.
+
+StartIntensity property:
+
+Made for editor ONLY. It's an intensity multiplier that let's you change intensity "normally".
