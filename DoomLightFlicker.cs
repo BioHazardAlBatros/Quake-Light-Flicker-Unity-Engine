@@ -1,5 +1,5 @@
 //Pros: Easy to create new presets, John Romero's algorithm, works on any object with Light Source.
-//Cons: Calculates animation only once during runtime, heavily depends on the FPS, really easy to break during coding, uses switches, no serialized variables.
+//Cons: Calculates animation only once during runtime, heavily depends on the FPS, really easy to break during coding, uses switches. I don't like them.
 
 using System.Collections;
 using System.Collections.Generic;
@@ -7,11 +7,12 @@ using UnityEngine;
 
 public class DoomLightFlicker : MonoBehaviour
 {
-    //These variables are being used EVERY frame. 
+    //These variables are being used EVERY frame. Made some variables public to use in SCRIPTED sequences.
     public int delay = 10;
-    public float AddIntensity;
+    public float StartIntensity;
+    [SerializeField] float AddIntensity = 0;
     //These variables are being used BEFORE first frame. Only once.
-    public string CustomAnim;
+    [SerializeField] string CustomAnim;
     public int AnimationPreset;
     //Not public variables.
     int i;
@@ -20,12 +21,18 @@ public class DoomLightFlicker : MonoBehaviour
     Light lighting;
     //Bool to update light animation.
     public bool Reinitialize = false;
-    //This function reads CustomAnim value, if empty checks preset value and fills CustomAnim with symbols. Then starts Alphabet() function.
+    //Some preparations. Also starts animation generation.
     void Start()
+    {
+        lighting = GetComponent<Light>();
+        StartIntensity = lighting.intensity;
+        GenerateAnimation(); 
+    }
+    //This function reads CustomAnim value, if empty checks preset value and fills CustomAnim with symbols. Then starts Alphabet() function.
+    void GenerateAnimation()
     {
         i = 0;
         fps = 0;
-        lighting = GetComponent<Light>();
         if (CustomAnim == "")
         {
             switch (AnimationPreset)
@@ -95,41 +102,20 @@ public class DoomLightFlicker : MonoBehaviour
                     CustomAnim = "abcdefghijklmnopqrrqponmlkjihgfedcba";
                     anim = new float[CustomAnim.Length];
                     break;
+                //You can add your presets here.
             }
-
         }
         else
         {
             anim = new float[CustomAnim.Length];
         }
-        foreach(int i in anim)
+        foreach (int i in anim)
         {
-        Alphabet();
+            Alphabet();
         }
         i = 0;
         Reinitialize = false;
         CustomAnim = "";
-    }
-
-    // This function animates Light. Why did i choose FixedUpdate? Because script hstill depends on the Frame Count.
-    void FixedUpdate()
-    {
-        //Used to update light animation.
-        if (Reinitialize)
-         Start();
-        //Restarts frames counter.
-        if (fps > delay)
-            fps = 0;
-        //Updates light intensity after delay. I recommend using 5 as delay value.
-        if (fps%delay==0)
-        {
-            //Delete «*lighting.intensity» if you want;
-            lighting.intensity = ((anim[i]*lighting.intensity) + AddIntensity);
-            i++;
-            if (i == anim.Length)
-            i = 0;
-        }
-        fps++;
     }
     // Translates symbols to floats and puts them into array.
     void Alphabet()
@@ -221,3 +207,22 @@ public class DoomLightFlicker : MonoBehaviour
         i++;
     }
 }
+// This function animates Light. Why did i choose FixedUpdate? To make animation identical to every device/pc.
+void FixedUpdate()
+    {
+        //Used to update light animation.
+        if (Reinitialize)
+         GenerateAnimation();
+        //Restarts frame counter.
+        if (fps > delay)
+            fps = 0;
+        //Updates light intensity after delay. I recommend using 2-3 for SMOOTH animation. 5-10 for ABRUPT animation.
+        if (fps%delay==0)
+        {
+            lighting.intensity = ((anim[i]*StartIntensity) + AddIntensity);
+            i++;
+            if (i == anim.Length)
+            i = 0;
+        }
+        fps++;
+    }
