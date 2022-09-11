@@ -24,9 +24,10 @@ How to use:
 
 3.It just works!
 
+
 CustomAnim property:
 
-Type any string using ONLY latin a-z symbols.
+Type any string using ONLY latin a-z symbols. Other symbols will be considered as "a" or «No light».
 
 a - is «No light»
 
@@ -37,7 +38,8 @@ z - is «Double intensity»
 
 AnimationPreset property:
 
-If CustomAnim property is empty, script uses 0 preset as default(No animation; Normal intensity)
+If CustomAnim property is empty, script uses preset 0 as default(No animation; Normal intensity)
+
 
 Premade presets:
 
