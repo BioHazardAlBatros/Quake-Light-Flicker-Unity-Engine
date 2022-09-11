@@ -63,3 +63,6 @@ Change this value to decrease/increase delay between light updates.
 AddIntenstity property:
 
 Change this value to add some more intensity to EVERY intensity change.
+
+Reinitialize property:
+Allows you to update the animation in Editor/by other scripts.
