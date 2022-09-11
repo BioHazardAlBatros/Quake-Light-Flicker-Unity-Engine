@@ -14,13 +14,17 @@ public class DoomLightFlicker : MonoBehaviour
     public string CustomAnim;
     public int AnimationPreset;
     //Not public variables.
-    int i = 0;
+    int i;
     float[] anim;
     int fps=0;
     Light lighting;
+    //Bool to update light animation.
+    public bool Reinitialize = false;
     //This function reads CustomAnim value, if empty checks preset value and fills CustomAnim with symbols. Then starts Alphabet() function.
     void Start()
     {
+        i = 0;
+        fps = 0;
         lighting = GetComponent<Light>();
         if (CustomAnim == "")
         {
@@ -103,11 +107,17 @@ public class DoomLightFlicker : MonoBehaviour
         Alphabet();
         }
         i = 0;
+        Reinitialize = false;
+        CustomAnim = "";
     }
 
-    // This function animates Light. Why did i choose FixedUpdate? Because script still depends on the Frame Count.
+    // This function animates Light. Why did i choose FixedUpdate? Because script hstill depends on the Frame Count.
     void FixedUpdate()
     {
+        //Used to update light animation.
+        if (Reinitialize)
+         Start();
+        //Restarts frames counter.
         if (fps > delay)
             fps = 0;
         //Updates light intensity after delay. I recommend using 5 as delay value.
