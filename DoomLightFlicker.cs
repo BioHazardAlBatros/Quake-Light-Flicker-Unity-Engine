@@ -123,7 +123,8 @@ public class DoomLightFlicker : MonoBehaviour
         //Updates light intensity after delay. I recommend using 5 as delay value.
         if (fps%delay==0)
         {
-            lighting.intensity = (anim[i] + AddIntensity);
+            //Delete «*lighting.intensity» if you want;
+            lighting.intensity = ((anim[i]*lighting.intensity) + AddIntensity);
             i++;
             if (i == anim.Length)
             i = 0;
