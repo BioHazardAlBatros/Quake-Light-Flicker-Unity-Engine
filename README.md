@@ -1,17 +1,25 @@
 ![](https://github.com/BioHazardAlBatros/Quake-Light-Flicker-Unity-Engine/blob/main/demo.gif)
 
 THIS SCRIPT WAS MADE FOR UNITY.
+
 Doom is a typo!!! I'm just too lazy to fix it.
 
 How to use:
+
 1.Create an object with light component.
+
 2.Attach this script to the same object.
+
 3.It just works!
 
 CustomAnim property:
+
 Type any string using ONLY latin a-z symbols.
+
 a - is «No light»
+
 m - is «Normal intensity»
+
 z - is «Double intensity»
 
 AnimationPreset property:
