@@ -1,5 +1,6 @@
-THIS SCRIPT WAS MADE FOR UNITY.
 ![](https://github.com/BioHazardAlBatros/Quake-Light-Flicker-Unity-Engine/blob/main/demo.gif)
+
+THIS SCRIPT WAS MADE FOR UNITY.
 Doom is a typo!!! I'm just too lazy to fix it.
 
 How to use:
