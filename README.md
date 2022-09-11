@@ -65,4 +65,5 @@ AddIntenstity property:
 Change this value to add some more intensity to EVERY intensity change.
 
 Reinitialize property:
+
 Allows you to update the animation in Editor/by other scripts.
