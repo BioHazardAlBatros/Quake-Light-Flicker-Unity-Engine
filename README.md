@@ -25,7 +25,7 @@ How to use:
 3.It just works!
 
 
-CustomAnim property:
+CustomAnim property(string):
 
 Type any string using ONLY latin a-z symbols. Other symbols will be considered as "a" or «No light».
 
@@ -36,7 +36,7 @@ m - is «Normal intensity»
 z - is «Double intensity»
 
 
-AnimationPreset property:
+AnimationPreset property(int):
 
 If CustomAnim property is empty, script uses preset 0 as default(No animation; Normal intensity)
 
@@ -72,18 +72,18 @@ Premade presets:
 12-??:Your own preset!
 
 
-Delay property:
+Delay property(int):
 
-Change this value to decrease/increase delay between light updates.
+Change this value to decrease/increase delay between light updates. DON'T MAKE IT 0!
 
-AddIntenstity property:
+AddIntenstity property(float):
 
 Change this value to add some more intensity to EVERY intensity change.
 
-Reinitialize property:
+Reinitialize property(bool):
 
 Allows you to update the animation in Editor/by other scripts.
 
-StartIntensity property:
+StartIntensity property(float):
 
 Made for editor ONLY. It's an intensity multiplier that let's you change intensity "normally" during runtime. When initializing grabs a value from Light Intensity.
