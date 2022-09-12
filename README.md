@@ -27,7 +27,7 @@ How to use:
 
 CustomAnim property(string):
 
-Type any string using ONLY latin a-z symbols. Other symbols will be considered as "a" or «No light».
+Type any string using ONLY latin a-z characters. Any other character will be considered as "a" or «No light».
 
 a - is «No light»
 
@@ -39,7 +39,7 @@ z - is «Double intensity»
 AnimationPreset property(int):
 
 If CustomAnim property is empty, script uses preset 0 as default(No animation; Normal intensity)
-
+If chosen AnimationPreset is missing, script uses preset 0 as default(No animation; Normal intensity)
 
 Premade presets:
 
@@ -69,7 +69,7 @@ Premade presets:
 
 11: Slow pulse not fade to black
 
-12-??:Your own preset!
+12-XX:Your own preset!
 
 
 Delay property(int):
@@ -82,7 +82,7 @@ Change this value to add some more intensity to EVERY intensity change.
 
 Reinitialize property(bool):
 
-Allows you to update the animation in Editor/by other scripts.
+Allows you to update the animation in Editor/by other scripts. Just check the box and some magic will happen.
 
 StartIntensity property(float):
 
