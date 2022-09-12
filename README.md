@@ -86,4 +86,4 @@ Allows you to update the animation in Editor/by other scripts.
 
 StartIntensity property:
 
-Made for editor ONLY. It's an intensity multiplier that let's you change intensity "normally".
+Made for editor ONLY. It's an intensity multiplier that let's you change intensity "normally" during runtime. When initializing grabs a value from Light Intensity.
