@@ -28,6 +28,25 @@ public class DoomLightFlicker : MonoBehaviour
         StartIntensity = lighting.intensity;
         GenerateAnimation(); 
     }
+    // This function animates Light. Why did i choose FixedUpdate? To make animation identical to every device/pc.
+void FixedUpdate()
+    {
+        //Used to update light animation.
+        if (Reinitialize)
+         GenerateAnimation();
+        //Restarts frame counter.
+        if (fps > delay)
+            fps = 0;
+        //Updates light intensity after delay. I recommend using 2-3 for SMOOTH animation. 5-10 for ABRUPT animation.
+        if (fps%delay==0)
+        {
+            lighting.intensity = ((anim[i]*StartIntensity) + AddIntensity);
+            i++;
+            if (i == anim.Length)
+            i = 0;
+        }
+        fps++;
+    }
     //This function reads CustomAnim value, if empty checks preset value and fills CustomAnim with symbols. Then starts Alphabet() function.
     void GenerateAnimation()
     {
@@ -207,22 +226,3 @@ public class DoomLightFlicker : MonoBehaviour
         i++;
     }
 }
-// This function animates Light. Why did i choose FixedUpdate? To make animation identical to every device/pc.
-void FixedUpdate()
-    {
-        //Used to update light animation.
-        if (Reinitialize)
-         GenerateAnimation();
-        //Restarts frame counter.
-        if (fps > delay)
-            fps = 0;
-        //Updates light intensity after delay. I recommend using 2-3 for SMOOTH animation. 5-10 for ABRUPT animation.
-        if (fps%delay==0)
-        {
-            lighting.intensity = ((anim[i]*StartIntensity) + AddIntensity);
-            i++;
-            if (i == anim.Length)
-            i = 0;
-        }
-        fps++;
-    }
