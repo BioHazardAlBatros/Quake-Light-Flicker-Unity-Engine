@@ -44,7 +44,7 @@ If chosen AnimationPreset is missing, script uses preset 0 as default(No animati
 
 Premade presets:
 
--1: Broken Light
+-1: Broken Light (No light)
 
 0: Normal Light
 
