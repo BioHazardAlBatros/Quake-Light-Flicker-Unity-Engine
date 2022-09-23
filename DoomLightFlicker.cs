@@ -9,10 +9,10 @@ public class DoomLightFlicker : MonoBehaviour
 {
     //These variables are being used EVERY frame. Made some variables public to use in SCRIPTED sequences.
     public int delay = 10;
-    public float StartIntensity;
-    [SerializeField] float AddIntensity = 0;
+    [SerializeField] float StartIntensity;
+    public float AddIntensity = 0;
     //These variables are being used BEFORE first frame. Only once.
-    [SerializeField] string CustomAnim;
+    public string CustomAnim;
     public int AnimationPreset;
     //Not public variables.
     int i;
@@ -40,7 +40,7 @@ void FixedUpdate()
         //Updates light intensity after delay. I recommend using 2-3 for SMOOTH animation. 5-10 for ABRUPT animation.
         if (fps%delay==0)
         {
-            lighting.intensity = ((anim[i]*StartIntensity) + AddIntensity);
+            lighting.intensity = ((anim[i]*(StartIntensity+ AddIntensity)));
             i++;
             if (i == anim.Length)
             i = 0;
