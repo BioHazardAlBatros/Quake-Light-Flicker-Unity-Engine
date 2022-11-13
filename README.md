@@ -87,4 +87,4 @@ Allows you to update the animation in Editor/by other scripts. Just check the bo
 
 StartIntensity property(float):
 
-Made for editor ONLY. It's an intensity multiplier that let's you change intensity "normally" during runtime. When the game is initialized, this property takes it's value from Light Intensity in Start() function.
+Made for editor ONLY. It's an intensity multiplier that lets you change intensity "normally" during runtime. When the game is initialized, this property takes it's value from Light Intensity in Start() function.
