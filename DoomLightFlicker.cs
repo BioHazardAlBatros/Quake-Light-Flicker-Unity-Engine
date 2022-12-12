@@ -7,7 +7,7 @@ using UnityEngine;
 
 public class DoomLightFlicker : MonoBehaviour
 {
-    //These variables are being used EVERY frame. Made some variables public to use in SCRIPTED sequences.
+    //These variables are being used EVERY frame. Made some variables public so i can use them to create SCRIPTED sequences.
     public int delay = 10;
     [SerializeField] float StartIntensity;
     public float AddIntensity = 0;
@@ -28,7 +28,7 @@ public class DoomLightFlicker : MonoBehaviour
         StartIntensity = lighting.intensity;
         GenerateAnimation(); 
     }
-    // This function animates Light. Why did i choose FixedUpdate? To make animation identical to every device/pc.
+    // This function animates Light. Why did i choose FixedUpdate? To make animation identical on every device/pc.
 void FixedUpdate()
     {
         //Used to update light animation.
@@ -121,7 +121,11 @@ void FixedUpdate()
                     CustomAnim = "abcdefghijklmnopqrrqponmlkjihgfedcba";
                     anim = new float[CustomAnim.Length];
                     break;
-                //You can add your presets here.
+                //You can add your presets here. Here's the template.
+                //case 12:
+                //  CustomAnim = "WriteSomethingHere"; 
+                //  anim = new float[CustomAnim.Length];
+                //  break;
             }
         }
         else
@@ -134,12 +138,12 @@ void FixedUpdate()
         }
         i = 0;
         Reinitialize = false;
-        CustomAnim = "";
+        CustomAnim = "";        //Dunno why did i even add this line...
     }
     // Translates symbols to floats and puts them into array.
     void Alphabet()
     {
-        //Not elegant, i know. But at least i didn't had to create any files. :D
+        //Not elegant, i know. But atleast i didn't had to create any files. :D
         switch (CustomAnim[i])
         {
             case 'a':
