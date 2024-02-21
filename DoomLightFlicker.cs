@@ -9,13 +9,13 @@ public class DoomLightFlicker : MonoBehaviour
     [SerializeField] float StartIntensity;
     [SerializeField] int delay;
     [SerializeField] float AddIntensity;
-    [SerializeField] string CurrentAnim,NewCustomAnim;
+    [SerializeField] string CurrentAnim, NewCustomAnim;
     [SerializeField] int AnimationPreset;
     [SerializeField] bool Reinitialize;
-    int i,tick;
+    private int i, tick;
     private float[] anim;
-    Light lighting;
-    
+    private Light lighting;
+
     //I hope those will help someone with scripted events
     void SetNewPreset(int NewValue)
     {
@@ -29,9 +29,13 @@ public class DoomLightFlicker : MonoBehaviour
     {
         NewCustomAnim = Animation;
     }
-    void SetNewStartIntensity(float NewValue) 
+    void SetNewStartIntensity(float NewValue)
     {
-        StartIntensity= NewValue;
+        StartIntensity = NewValue;
+    }
+    void CallReinitialize()
+    {
+        Reinitialize = true;
     }
 
     void Start()
@@ -53,7 +57,7 @@ public class DoomLightFlicker : MonoBehaviour
         {
             lighting.intensity = ((anim[i++] * StartIntensity) + AddIntensity);
             if (i == anim.Length)
-            i = 0;
+                i = 0;
         }
         //Restarts frame counter.
         if (tick > delay)
@@ -127,7 +131,7 @@ public class DoomLightFlicker : MonoBehaviour
         }
         anim = new float[NewCustomAnim.Length];
         CurrentAnim = NewCustomAnim;
-        for(int i=0;i<NewCustomAnim.Length;i++)
+        for (int i = 0; i < NewCustomAnim.Length; i++)
         {
             if ((96 < NewCustomAnim[i]) && (NewCustomAnim[i] < 123))
                 anim[i] = 0.083f * (NewCustomAnim[i] - 97);
