@@ -84,5 +84,4 @@ Reinitialize property(bool):
 Allows you to generate the new animation in Editor/by other scripts. Just check the box and some magic will happen.
 
 StartIntensity property(float):
-Made for editor ONLY. It's an intensity multiplier that lets you change intensity "normally" during runtime. When the game is initialized, this property takes it's value from Light Intensity in Start() function.
-UPD(21.02.24):Do i even need that...
+It's an intensity multiplier that lets you change intensity "normally" during runtime. When the game is initialized, this property takes it's value from Light Intensity in Start() function. And uses it in calculations.
