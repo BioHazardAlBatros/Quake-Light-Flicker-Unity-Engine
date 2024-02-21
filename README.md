@@ -14,8 +14,6 @@ Pros:
 
 -It works
 
--shit sux
-
 
 How to use:
 
@@ -26,7 +24,7 @@ How to use:
 3.It just works!
 
 
-CustomAnim property(string):
+NewCustomAnim property(string):
 
 Type any string using ONLY latin a-z characters. Any other character will be considered as "a" or «No light».
 
@@ -75,7 +73,7 @@ Premade presets:
 
 Delay property(int):
 
-Change this value to decrease/increase delay between light updates. DON'T MAKE IT 0!
+Change this value to decrease/increase delay between light updates.
 
 AddIntenstity property(float):
 
@@ -83,8 +81,8 @@ Change this value to add some more intensity to EVERY intensity change.
 
 Reinitialize property(bool):
 
-Allows you to update the animation in Editor/by other scripts. Just check the box and some magic will happen.
+Allows you to generate the new animation in Editor/by other scripts. Just check the box and some magic will happen.
 
 StartIntensity property(float):
-
 Made for editor ONLY. It's an intensity multiplier that lets you change intensity "normally" during runtime. When the game is initialized, this property takes it's value from Light Intensity in Start() function.
+UPD(21.02.24):Do i even need that...
