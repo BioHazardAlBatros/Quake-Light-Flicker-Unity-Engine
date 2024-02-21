@@ -17,23 +17,23 @@ public class DoomLightFlicker : MonoBehaviour
     private Light lighting;
 
     //I hope those will help someone with scripted events
-    void SetNewPreset(int NewValue)
+    public void SetNewPreset(int NewValue)
     {
         AnimationPreset = NewValue;
     }
-    void SetNewDelay(int NewValue)
+    public void SetNewDelay(int NewValue)
     {
         delay = NewValue;
     }
-    void SetNewCustomAnim(string Animation)
+    public void SetNewCustomAnim(string Animation)
     {
         NewCustomAnim = Animation;
     }
-    void SetNewStartIntensity(float NewValue)
+    public void SetNewStartIntensity(float NewValue)
     {
         StartIntensity = NewValue;
     }
-    void CallReinitialize()
+    public void CallReinitialize()
     {
         Reinitialize = true;
     }
