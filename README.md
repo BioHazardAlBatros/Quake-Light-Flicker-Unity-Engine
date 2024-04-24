@@ -3,9 +3,6 @@
 
 THIS SCRIPT WAS MADE FOR UNITY.
 
-Doom is a typo!!! I'm just too lazy to fix it.
-
-
 Pros:
 
 -Easy animation
