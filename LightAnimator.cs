@@ -4,7 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DoomLightFlicker : MonoBehaviour
+public class LightAnimator : MonoBehaviour
 {
     [SerializeField] float StartIntensity;
     [SerializeField] int delay;
